@@ -1,0 +1,33 @@
+import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
+from datetime import datetime
+
+# Define project phases and their start/end dates
+phases = [
+    ("Planning & Customization", "2025-02-15", "2025-03-31"),
+    ("Integration & Training", "2025-04-01", "2025-05-15"),
+    ("Optimization & Go-Live", "2025-05-16", "2025-06-10")
+]
+
+# Convert string dates to datetime objects
+start_dates = [datetime.strptime(start, "%Y-%m-%d") for _, start, _ in phases]
+end_dates = [datetime.strptime(end, "%Y-%m-%d") for _, _, end in phases]
+durations = [(end - start).days for start, end in zip(start_dates, end_dates)]
+
+# Create Gantt chart
+fig, ax = plt.subplots(figsize=(10, 4))
+for i, (phase, start, duration) in enumerate(zip([p[0] for p in phases], start_dates, durations)):
+    ax.barh(phase, duration, left=start, height=0.6)
+
+# Format x-axis
+ax.set_title("CRM Implementation Project Gantt Chart")
+ax.set_xlabel("Timeline")
+ax.set_ylabel("Project Phases")
+ax.xaxis.set_major_locator(mdates.MonthLocator())
+ax.xaxis.set_major_formatter(mdates.DateFormatter('%b %d, %Y'))
+plt.xticks(rotation=45)
+plt.tight_layout()
+
+# Save or show the plot
+plt.savefig("CRM_Project_Gantt_Chart.png")
+plt.show()
