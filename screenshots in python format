@@ -1,0 +1,23 @@
+class CRMScreenshots:
+    def __init__(self):
+        self.screenshots = {
+            "dashboard": "screenshots/crm_dashboard.png",
+            "customer_profile": "screenshots/customer_profile_view.png",
+            "sales_pipeline": "screenshots/sales_pipeline.png",
+            "reports": "screenshots/analytics_dashboard.png",
+            "integration_view": "screenshots/integration_settings.png",
+            "user_training": "screenshots/user_training_module.png"
+        }
+
+    def describe_screenshots(self):
+        print("=== CRM System Screenshots Overview ===")
+        print(f"1. Dashboard: {self.screenshots['dashboard']}  # Shows overview metrics and navigation")
+        print(f"2. Customer Profile: {self.screenshots['customer_profile']}  # Displays contact history, details, and activity log")
+        print(f"3. Sales Pipeline: {self.screenshots['sales_pipeline']}  # Visual funnel of sales opportunities")
+        print(f"4. Reports: {self.screenshots['reports']}  # Real-time analytics on KPIs and performance")
+        print(f"5. Integration View: {self.screenshots['integration_view']}  # Connected tools (email, ERP, calendar)")
+        print(f"6. User Training: {self.screenshots['user_training']}  # Training modules and onboarding tips")
+
+# Initialize and display the screenshot paths and descriptions
+crm_ui = CRMScreenshots()
+crm_ui.describe_screenshots()
